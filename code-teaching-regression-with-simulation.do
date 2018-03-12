@@ -137,3 +137,39 @@ reg roa rd
 /*	DISCUSSION
 	We see in both cases that the estimates do not match the true values in the model.
 */
+
+
+*********	GENERATING CORRELATED INDEPENDENT VARIABLES: CONFOUNDING ERRORS
+/*	In the above example, size and rd are completely independent of one another.
+	What happens when independent variables are correlated rather than independent?
+*/
+
+***	GENERATE CORRELATED INDEPENDENT VARIABLES
+clear all
+set seed 61047
+matrix M = 0, 0									//	Specify means of 0 for both size and rd
+matrix V = (1, .3\.3, 1)						//	Specify correlation of .3 between size and rd
+matrix list M 
+matrix list V 
+drawnorm size rd, n(500) cov(V) means(M)		//	Generate a dataset with specified means and correlations
+
+*	Summary stats
+sum *
+corr *
+
+***	GENERATE DV
+gen roa = 1.8*size + 3*rd + rnormal()
+
+***	REGRESSION
+*	Omitted variable bias
+reg roa size rd
+reg roa size
+reg roa rd
+
+*	Confounding bias
+gen roa2 = 3*rd + rnormal()			//	roa is not affected by size
+
+reg roa2 rd							//	No problem here!
+reg roa2 size						//	Uh oh! It looks like roa is affected by size!
+
+reg roa2 rd size					//	Including rd reveals size is a confound between roa and rd, not a cause of roa independent of rd
