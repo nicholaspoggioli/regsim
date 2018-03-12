@@ -11,6 +11,21 @@
 		2	Creating and testing an OLS regression
 		3	Creating and testing a fixed-effects OLS regression
 		4	Possible extensions
+		
+*	From Bou, J. C., & Satorra, A. (2018). Univariate Versus Multivariate Modeling of Panel Data: Model Specification and Goodness-of-Fit Testing. Organizational Research Methods, 21(1), 150–196. http://doi.org/10.1177/1094428117715509
+clear all
+set seed 2016
+matrix M = 0, 0
+matrix V = (1, .4 \ .4, 1)
+matrix list M 
+matrix list V 
+drawnorm size rd, n(3000) cov(V) means(M)
+**
+
+gen roa = 2*size + rnormal()		
+		
+		
+		
 */
 
 				***===============================***
@@ -33,7 +48,7 @@ set obs 500
 set seed 61047
 
 *	Cross-sectional data: generate unique id for each observation
-gen firm=_n		/*	_n is Stata code for the row number	*/
+gen firm=_n																		//	_n is Stata code for the row number
 
 *	Generate variable: Independent variable firm size (size)
 gen size = rnormal()
@@ -41,12 +56,10 @@ gen size = rnormal()
 *	Generate variable: Independent variable R&D spending (rd)
 gen rd = rnormal()
 
-*	Generate variable: Random error
-gen e = rnormal()
 
+/*	We now have a dataset of observations of size and r&d spending for 500 firms. 
 
-/*	We now have a dataset of observations of size, r&d spending, and a random error
-	for 500 firms. What can we do with this dataset?
+	What can we do with this dataset?
 	
 	First, remember this is simluated--i.e., fake--data. These are not real firms,
 	and the variables are not true measures of the constructs.
@@ -77,14 +90,14 @@ gen e = rnormal()
 	The random error reflects some degree of unpredictability in the world. If
 	we did not include the error term e, roa would be entirely determined as a
 	function of size and rd. The random error term captures unpredictability, and
-	it is crucial that the error term is truly random and not associated in any
-	systematic way with size or rd.
+	it is crucial that the error term is not associated in any systematic way 
+	with size, rd, or any other indepependent variable in a regression.
 	
 	Let's generate the true model of roa and explore omitted variable bias.
 */
 
 *	Generate roa
-gen roa = 1.8*size + 3*rd + e
+gen roa = 1.8*size + 3*rd + rnormal()
 
 *	Summarize variables
 sum *
