@@ -39,8 +39,29 @@ A major challenge in regression analysis is determining how close each estimand 
 
 Knowing the parameter values allows us to use several different regression techniques and compare the estimands from each technique to the true parameter value. We can see that some regression techniques do better than others, and we can begin to understand how the context of the data and the mechanics of each regression technique combine to produce better or worse estimands, where better estimands are closer to the true parameter values than worse estimands.
 
-For example, we can create data in which the above regression specification has the following parameter  values for the b's:
-> y = 1 + 2\*x1 + 3\*x2 + 4\*x3 + e
+For example, we can use simulation to create a dataset in which the above regression specification has the following parameter values for the b's:
+> y = 1 + 1\*x1 + 2\*x2 + 3\*x3 + e
+
+Here, the parameter values for b1 = 1, b2 = 2, and b4 = 3. These are the first 5 rows of a simulated dataset created using the regression specificaion with b1 = 1, b2 = 2, b3 = 3:
+
+y|c|x1|x2|x3|e
+-|-|--|--|--|--
+0.9665	| 1	| -0.1967	| -1.0939	| 0.7359 |	0.1433
+-0.7054 |	1 |	-0.3418 |	0.5311 |	-0.6637	 | -0.4349
+-1.005478|1|1.178822|0.899235|-1.234552|-1.279113
+-9.054642|1|0.1165438|-1.349642|-2.301884|-0.5662479
+-2.498454|1|-1.557141|-0.4090332|-0.9207506|1.639005
+
+The code to create the above dataset (all variables are created using the rnormal() function which draws psuedorandom values from a normal distribution with mean=0 and standard deviation=1 )
+>set seed 61047
+>set obs 50
+>gen c = 1
+>gen x1 = rnormal()
+>gen x2 = rnormal()
+>gen x3 = rnormal()
+>gen e = rnormal()
+>gen y = c + 1*x1 + 2*x2 + 3*x3 + e
+>order y, first
 
 We could then use regression techniques like ordinary least squares, random effects, fixed effects, or logistic regression to estimate b1, b2, and b3. We can then compare the estimates from each technique to our known paramater values of 2, 3, and 4, respectively, to better understand which technique produce estimands that are closest to the parameter values.
 
