@@ -53,15 +53,17 @@ y|c|x1|x2|x3|e
 -2.498454|1|-1.557141|-0.4090332|-0.9207506|1.639005
 
 The code to create the above dataset (all variables are created using the rnormal() function which draws psuedorandom values from a normal distribution with mean=0 and standard deviation=1 )
->set seed 61047
->set obs 50
->gen c = 1
->gen x1 = rnormal()
->gen x2 = rnormal()
->gen x3 = rnormal()
->gen e = rnormal()
->gen y = c + 1*x1 + 2*x2 + 3*x3 + e
->order y, first
+```
+set seed 61047
+set obs 50
+gen c = 1
+gen x1 = rnormal()
+gen x2 = rnormal()
+gen x3 = rnormal()
+gen e = rnormal()
+gen y = c + 1*x1 + 2*x2 + 3*x3 + e
+order y, first
+```
 
 We could then use regression techniques like ordinary least squares, random effects, fixed effects, or logistic regression to estimate b1, b2, and b3. We can then compare the estimates from each technique to our known paramater values of 2, 3, and 4, respectively, to better understand which technique produce estimands that are closest to the parameter values.
 
