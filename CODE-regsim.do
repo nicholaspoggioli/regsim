@@ -5,13 +5,44 @@
 */
 
 /*	PROJECT OUTLINE
-	
-
-		1	Simulating data in Stata
-		2	Creating and testing an OLS regression
+		0	README
+		1	Basic data simulation
+		2	Omitted variable bias
+		2.a	OLS
+		2.b 
 		3	Creating and testing a fixed-effects OLS regression
 		4	Possible extensions
+*/
 		
+***=======================================================================***
+*	0	README																*
+*		https://github.com/nicholaspoggioli/regsim/blob/master/README.md	*
+***=======================================================================***
+
+***	SIMULATING B'S OF 1, 2, AND 3
+*	Create data
+set seed 61047
+set obs 50
+
+gen c = 1
+gen x1 = rnormal()
+gen x2 = rnormal()
+gen x3 = rnormal()
+gen e = rnormal()
+
+gen y = c + 1*x1 + 2*x2 + 3*x3 + e
+
+order y, first
+
+*	OLS
+reg y x1 x2 x3
+
+*	Quick omitted variable bias
+reg y x1 x2
+
+		
+		
+/*		
 *	From Bou, J. C., & Satorra, A. (2018). Univariate Versus Multivariate Modeling of Panel Data: Model Specification and Goodness-of-Fit Testing. Organizational Research Methods, 21(1), 150–196. http://doi.org/10.1177/1094428117715509
 clear all
 set seed 2016
@@ -23,9 +54,6 @@ drawnorm size rd, n(3000) cov(V) means(M)
 **
 
 gen roa = 2*size + rnormal()		
-		
-		
-		
 */
 
 				***===============================***
