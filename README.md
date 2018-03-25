@@ -77,7 +77,7 @@ y|Coef.|Std. Err.|t|P>t|\[95% Conf.|Interval]
 x1|0.9048629|0.1864689|4.85|0.000|0.5295205|1.280205
 x2|1.827036|0.1732623|10.54|0.000|1.478277|2.175794
 x3|3.078995|0.181532|16.96|0.000|2.71359|3.4444
-\_cons|0.9674033|0.1967596|4.92|0|0.5713469|1.36346
+\_cons|0.9674033|0.1967596|4.92|0.000|0.5713469|1.36346
 
 These results suggest the estimands for b1, b2, b3 are close to the parameter values of 1, 2, and 3 respectively. We know this because the estimand (coefficient estimate) for x1 is close to 1, for x2 is close to 2, and for x3 is close to 3 (these values come from the equation above used to generate y = 1 + 1\*x1 + 2*\x2 + 3\*x3 + e).
 
