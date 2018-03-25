@@ -74,9 +74,9 @@ OLS regression produces these results:
 
 y|Coef.|Std. Err.|t|P>t|\[95% Conf.|Interval]
 -|-|-|-|-|-|-
-x1|0.9048629|0.1864689|4.85|0|0.5295205|1.280205
-x2|1.827036|0.1732623|10.54|0|1.478277|2.175794
-x3|3.078995|0.181532|16.96|0|2.71359|3.4444
+x1|0.9048629|0.1864689|4.85|0.000|0.5295205|1.280205
+x2|1.827036|0.1732623|10.54|0.000|1.478277|2.175794
+x3|3.078995|0.181532|16.96|0.000|2.71359|3.4444
 \_cons|0.9674033|0.1967596|4.92|0|0.5713469|1.36346
 
 These results suggest the estimands for b1, b2, b3 are close to the parameter values of 1, 2, and 3 respectively. We know this because the estimand (coefficient estimate) for x1 is close to 1, for x2 is close to 2, and for x3 is close to 3 (these values come from the equation above used to generate y = 1 + 1\*x1 + 2*\x2 + 3\*x3 + e).
@@ -89,8 +89,8 @@ producing:
 y|Coef.|Std. Err.|t|P>t|[95% Conf.|Interval]
 -|-|-|-|-|-|-
 x1|0.4058605|0.4906248|0.83|0.412|-0.5811492|1.39287
-x2|1.961568|0.4611748|4.25|0|1.033804|2.889332
-_cons|0.7056096|0.5226518|1.35|0.183|-0.3458303|1.757049
+x2|1.961568|0.4611748|4.25|0.000|1.033804|2.889332
+\_cons|0.7056096|0.5226518|1.35|0.183|-0.3458303|1.757049
 
 The estimand for b2 is still close, but b1 (the coefficient on x1) is now far too small, and the confidence interval suggests we cannot be certain b1 is not zero or even negative! b1's paramater value is 1. The difference between the estimand of 0.41 and the parameter value 1 is the omitted variable bias caused by omitting the b3 parameter from the OLS regression model. 
 
