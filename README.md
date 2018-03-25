@@ -28,16 +28,18 @@ Morris et al. offer a framework for describing the goal(s) of a simulation study
 REGSIM provides code to explore tasks 1 and 2 in bold: estimation and testing.
 
 ## Task 1: Estimation
-The statsitical task of estimation seeks to produce an estimate of a regression coefficient. Consider the regression specification
+The statsitical task of estimation seeks to produce an estimate of some unkown value. Consider the regression specification
 > y = c + b1\*x1 + b2\*x2 + b3\*x3 + e
 
-Here, b1, b2, and b3 are regression coefficients. They are also known as *estimands* because they are being estimated by the regression model. In contrast, x1, x2, and x3 are not estimands because they are known values constituting the data.
+Here, b1, b2, and b3 are regression coefficients. When we use regression to calculate a regression coefficient, we are targeting the regression coefficient as the *estimand* or thing to be estimated. In contrast, x1, x2, and x3 are not estimands because they are not estimated. They are the data being used to estimate the estimand.
 
-Assuming the regression specification is the true data generating process for the outcome variable *y*, the estimation task is to use data to generate estimates of b1, b2, and b3 that are equal to the underlying, true values of b1, b2, and b3. The underlying true values are known as *parameters*. Estimands are estimates of parameters. (Still with me?!)
+The regression coefficients are estimates, but estimates of what? They are estimates of the underlying, true parameters that generate the data. The regression coefficient estimands are therefore estimates of the underlying paramaters. The goal of regression is to get the estimated values of the estimands as close as possible, given the data we have, to the value of the underlying paramater.
 
-A major challenge in regression analysis is determining how close each estimand comes to the true parameter value. This is where simulation can be very useful for understanding how close regression models come to correctly estimating parameters. The secret power of simulation is that we can know the true data generating process. In other words, we can know the true values of the parameters and compare the estimands to the parameter values. 
+Assuming the regression specification is the true data generating process for the outcome variable *y*, the estimation task is to use data to generate estimates of b1, b2, and b3 that are equal to the underlying, true paramater values of b1, b2, and b3.
 
-Knowing the parameter values allows us to use several different regression techniques and compare the estimands from each technique to the true parameter value. We can see that some regression techniques do better than others, and we can begin to understand how the context of the data and the mechanics of each regression technique combine to produce better or worse estimands, where better estimands are closer to the true parameter values than worse estimands.
+A major challenge in regression analysis is determining how close each coefficient estimand comes to the true parameter value. This is where simulation can be very useful for understanding how close regression models come to correctly estimating parameters. The secret power of simulation is that we can know the true data generating process. In other words, we can know the true values of the parameters and compare the coefficient estimands to the parameter values. 
+
+Knowing the parameter values allows us to use several different regression techniques and compare the estimands from each technique to the true parameter value. We can see that some regression techniques do better than others in getting the coefficient values close to the paramater values, and we can begin to understand how the context of the data and the mechanics of each regression technique combine to produce better or worse coefficient estimands, where better means closer to the true parameter values.
 
 For example, we can use simulation to create a dataset in which the above regression specification has the following parameter values for the b's:
 > y = 1 + 1\*x1 + 2\*x2 + 3\*x3 + e
