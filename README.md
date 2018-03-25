@@ -72,7 +72,7 @@ We can use OLS regression on the data using:
 
 OLS regression produces these results:
 
-y|Coef.|Std. Err.|t|P>t|[95% Conf.|Interval]
+y|Coef.|Std. Err.|t|P>t|\[95% Conf.|Interval]
 -|-|-|-|-|-|-
 x1|0.9048629|0.1864689|4.85|0|0.5295205|1.280205
 x2|1.827036|0.1732623|10.54|0|1.478277|2.175794
@@ -85,6 +85,7 @@ We can quickly preview the effect of omitted variable bias by leaving x3 out of 
 > reg y x1 x2
 
 producing:
+
 y|Coef.|Std. Err.|t|P>t|[95% Conf.|Interval]
 -|-|-|-|-|-|-
 x1|0.4058605|0.4906248|0.83|0.412|-0.5811492|1.39287
