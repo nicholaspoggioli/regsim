@@ -1,13 +1,23 @@
 # REGSIM: Teaching Regression with Simulation
-Simulation is an effective tool for teaching regression methods and computer coding skills useful in empirical social science research. 
+Simulation is an effective tool for teaching regression methods and computer coding skills useful in empirical social science research. The REGSIM repository contains Stata v15.1 code for teaching the following topics:
+1. Omitted variable bias in estimation
+2. Type 1 errros (a.k.a., false positives) in hypothesis testing
 
-The goal of this repository is to provide Stata simulation code useful for understanding commonly used regression models in social science research, including ordinary least squares, fixed effects, random effects, difference-in-differences, and regression discontinuity.
+The code addresses the following regression models:
+1. Ordinary least squares, 
+2. Fixed effects,
+3. Difference-in-differences, and
+4. Regression discontinuity
 
-In this project, I adopt the following suggestions in Morris, White, and Crowther's (2017) discussion of using and reporting simulations in medical research:
+I also briefly address random effects, hybrid, and correlated random effects models as described in Allison (2009) and Schunck (2013).
+
+I use the following from Morris, White, and Crowther's (2017) article on simulations in medical research:
 1. Framework for describing the "target" or goals of a simualation study (Table 3 in their paper) and
 2. Recommended plan for designing and reporting simulations (Table 1 in their paper).
 
-# Goals
+The remainder of this README is organized in the following sections. 'Simulation Goals' describes the statistical tasks of estimation and testing focused on in the simulations here. These two tasks are elaborated in 'Task 1' and 'Task 2'. These sections draw on Morris et al.'s Table 3. 'Simulation Plan' describes how each simulation is designed according to Morris et al.'s Table 1.
+
+# Simulation Goals
 Morris et al. offer a framework for describing the goal(s) of a simulation study in terms of five statistical tasks:
 1. **Estimation**
 2. **Testing**
@@ -17,7 +27,7 @@ Morris et al. offer a framework for describing the goal(s) of a simulation study
 
 REGSIM provides code to explore tasks 1 and 2 in bold: estimation and testing.
 
-## Estimation
+## Task 1: Estimation
 The statsitical task of estimation seeks to produce an estimate of a regression coefficient. Consider the regression specification
 > y = c + b1\*x1 + b2\*x2 + b3\*x3 + e
 
@@ -36,12 +46,11 @@ We could then use regression techniques like ordinary least squares, random effe
 
 The difference between an estimand and the true parameter value is known as **bias** and is a major problem of regression analysis. Anyone using regression analysis must have a deep understanding of the causes of bias in regression analysis, and simulation is a powerful tool for teaching and demonstrating how bias arises and how it can be corrected.
 
-##  Testing
+## Task 2: Testing
 Simulation can help teach and understand a second statistical task: testing. Testing refers to determining whether two values are the same or different. The classic testing problem in statistics is determining if the averages of two groups on some measure are equal or different. In simple randomized controlled trials, the two groups are a treatment group and a control group. For example, in medical research a treatment group would receive some medicine and the control group would receive a placebo. Imagine the researcher wants to know if the medicine reduces the number of headaches a person has. The researcher could measure the average number of headaches for each group and compare the two averages. If the treatment group has fewer headaches than the control group, on average, the researcher might conclude that the medicine does reduce the number of headaches. The statistical task of testing is about determining when the researcher can credibly claim that the two measures of average headache frequency are indeed different enough to indicate that the medicine has an effect on headaches.
 
-Because testing is about determining when a difference is "enough", testing is a form of evaluating credibility.
+# Simulation Plan
 
-# Plan
 
 
 
